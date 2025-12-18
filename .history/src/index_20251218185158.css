@@ -29,11 +29,3 @@ a.active{
 .perspective-1200 {
   perspective: 1200px;
 }
-
-.transform-gpu {
-  transform-style: preserve-3d;
-}
-
-.perspective-1200 {
-  perspective: 1200px;
-}

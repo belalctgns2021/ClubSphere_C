@@ -3,26 +3,26 @@ import { motion } from "framer-motion";
 import { FaUsers, FaStar, FaBolt, FaHeart, FaArrowRight } from "react-icons/fa"; // Added FaArrowRight
 
 const features = [
-   {
-        icon: <FaUsers />,
+    {
+        icon: <FaUsers className="text-4xl text-indigo-500" />, // Changed colors to match new theme
         title: "Strong Community",
         desc: "Connect with passionate people who share your vision and drive.",
         color: "indigo-500",
     },
     {
-        icon: <FaBolt />,
+        icon: <FaBolt className="text-4xl text-green-500" />,
         title: "Skill Development",
         desc: "Gain hands-on experience in leadership, teamwork, and tech.",
         color: "green-500",
     },
     {
-        icon: <FaStar />,
+        icon: <FaStar className="text-4xl text-yellow-500" />,
         title: "Exclusive Opportunities",
         desc: "Access special workshops, sessions, and professional networking.",
         color: "yellow-500",
     },
     {
-        icon: <FaHeart />,
+        icon: <FaHeart className="text-4xl text-red-500" />,
         title: "Make Real Impact",
         desc: "Work on meaningful projects that drive positive community change.",
         color: "red-500",

@@ -22,18 +22,3 @@ a.active{
   @apply ml-3 bg-linear-to-l to-[#8ABEB9] from-[#002455]  text-white py-2 px-3 font-semibold 
 }
 
-.transform-gpu {
-  transform-style: preserve-3d;
-}
-
-.perspective-1200 {
-  perspective: 1200px;
-}
-
-.transform-gpu {
-  transform-style: preserve-3d;
-}
-
-.perspective-1200 {
-  perspective: 1200px;
-}

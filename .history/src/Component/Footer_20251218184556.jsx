@@ -14,6 +14,8 @@ const Footer = () => {
         { icon: FaSquareGithub, url: 'https://github.com/lvfahim', label: 'GitHub' },
     ];
 
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}

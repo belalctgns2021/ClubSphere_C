@@ -3,9 +3,7 @@ import WebSideLogo from '../WebSideLogo/WebSideLogo';
 import { Link } from 'react-router';
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import WebSideLogo from "./WebSideLogo";
+
 const Footer = () => {
     // Define the author/social links centrally for clean mapping
     const socialLinks = [
@@ -14,6 +12,12 @@ const Footer = () => {
         { icon: FaSquareGithub, url: 'https://github.com/lvfahim', label: 'GitHub' },
     ];
 
+    return (
+        import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import WebSideLogo from "./WebSideLogo";
+
+const Footer = ({ socialLinks }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}
@@ -112,6 +116,8 @@ const Footer = () => {
         </motion.nav>
       </footer>
     </motion.div>
+  );
+};
 
 
     );
