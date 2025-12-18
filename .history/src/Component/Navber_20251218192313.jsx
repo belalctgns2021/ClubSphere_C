@@ -104,55 +104,65 @@ const Navber = () => {
     );
 
     return (
-       <motion.div
+        <motion.div
     initial="hidden"
     animate="visible"
     variants={navVariants}
-    className="w-full bg-gradient-to-r from-gray-900 to-gray-800 shadow-lg sticky top-0 z-50 transition-all duration-300"
+    className="w-full bg-gradient-to-r from-blue-900 to-blue-700 shadow-md sticky top-0 z-50 transition-all duration-300"
 >
-    <div className="navbar w-9/12 mx-auto px-4 py-2">
+    <div className="navbar w-11/12 mx-auto px-4 py-3 flex items-center justify-between">
 
-        {/* --- Navbar Start (Logo and Mobile Dropdown) --- */}
-        <div className="navbar-start">
-            <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-                    </svg>
+        {/* --- Navbar Start (Logo + Mobile Menu) --- */}
+        <div className="flex items-center gap-4">
+            {/* Mobile Hamburger */}
+            <div className="lg:hidden">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost p-2 rounded-md bg-white/10 hover:bg-white/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-sm dropdown-content mt-3 w-64 p-4 bg-white rounded-lg shadow-lg space-y-2 border border-gray-200"
+                    >
+                        {Linkss}
+                    </ul>
                 </div>
-                <ul
-                    tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-64 p-4 shadow-xl border border-gray-700 space-y-2 text-white"
-                >
-                    {Linkss}
-                </ul>
             </div>
 
-            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-                <Link to='/' className="text-2xl font-extrabold text-white flex items-center gap-2">
-                    <div className='lg:hidden'>
-                        <WebSideLogo />
-                    </div>
+            {/* Logo */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <Link to="/" className="text-2xl font-extrabold text-white flex items-center gap-2">
+                    <WebSideLogo />
                     <span className='hidden sm:inline'>ClubVerse</span>
                 </Link>
             </motion.div>
         </div>
 
         {/* --- Navbar Center (Desktop Links) --- */}
-        <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 space-x-2 text-white">
-                {Linkss}
+        <div className="hidden lg:flex lg:flex-1 lg:justify-center">
+            <ul className="menu menu-horizontal px-1 space-x-4 text-white font-medium">
+                {Linkss.map((link, index) => (
+                    <li key={index} className="hover:text-amber-400 transition-colors duration-300">
+                        {link}
+                    </li>
+                ))}
             </ul>
         </div>
 
-        {/* --- Navbar End (User & Auth) --- */}
-        <div className="navbar-end flex items-center gap-2">
+        {/* --- Navbar End (User / Auth) --- */}
+        <div className="flex items-center gap-3">
             {user ? (
                 <div className="dropdown dropdown-end">
                     <div
                         tabIndex={0}
                         role="button"
-                        className="btn btn-ghost btn-circle avatar border-2 border-blue-500 p-0 m-0 hover:shadow-lg hover:shadow-blue-500/50 transition-shadow"
+                        className="btn btn-ghost btn-circle avatar border-2 border-amber-400 p-0 m-0"
                         data-tooltip-id="infoTip"
                         data-tooltip-content={user?.displayName || "Profile"}
                     >
@@ -166,27 +176,24 @@ const Navber = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-64 p-3 shadow-xl border border-gray-700 space-y-1 text-white"
+                        className="menu menu-sm dropdown-content bg-white rounded-lg z-[1] mt-3 w-64 p-3 shadow-lg border border-gray-200 space-y-2"
                     >
-                        {/* Profile Info */}
-                        <li className='px-3 py-2 font-bold border-b border-gray-700 mb-1 flex flex-col'>
-                            <span className="flex items-center gap-2">
-                                <FaUserCircle className='text-lg text-blue-400' />
+                        <li className='px-3 py-2 text-gray-800 font-bold border-b mb-1 flex flex-col'>
+                            <span className='flex items-center gap-2'>
+                                <FaUserCircle className='text-amber-500 text-xl' />
                                 {user?.displayName || 'User'}
                             </span>
-                            <p className='text-xs font-normal text-gray-400 truncate mt-1'>{user?.email}</p>
+                            <span className='text-xs text-gray-500 truncate mt-1'>{user?.email}</span>
                         </li>
-                        {/* Dashboard Link */}
                         <li>
-                            <Link to="/dashboard/myjoinclub" className='hover:bg-blue-500/20 text-blue-400 font-semibold flex items-center gap-2 rounded-lg px-2 py-1 transition-colors'>
-                                <FaTachometerAlt className='text-lg' /> Dashboard
+                            <Link to="/dashboard/myjoinclub" className='flex items-center gap-2 text-blue-700 hover:text-amber-500 font-semibold transition-colors duration-300'>
+                                <FaTachometerAlt /> Dashboard
                             </Link>
                         </li>
-                        {/* Logout Button */}
                         <li>
                             <button
                                 onClick={handleLogOut}
-                                className="btn btn-sm btn-block bg-red-600 hover:bg-red-700 text-white border-0 mt-2"
+                                className="btn btn-sm w-full bg-red-500 hover:bg-red-600 text-white border-0 mt-1"
                             >
                                 <FaSignOutAlt /> Log Out
                             </button>
@@ -195,14 +202,13 @@ const Navber = () => {
                 </div>
             ) : (
                 <motion.div
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className='md:mr-4 mr-0'
+                    transition={{ duration: 0.5 }}
                 >
                     <Link
                         to="/auth/login"
-                        className="btn bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-indigo-500 hover:to-blue-500 text-white font-bold px-6 py-2 border-0 transition-all duration-300"
+                        className="btn bg-amber-400 hover:bg-amber-500 text-blue-900 font-bold px-5 py-2 rounded-md shadow-md transition-colors duration-300"
                     >
                         Login
                     </Link>

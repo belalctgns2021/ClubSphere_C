@@ -104,32 +104,32 @@ const Navber = () => {
     );
 
     return (
-       <motion.div
+        <motion.div
     initial="hidden"
     animate="visible"
     variants={navVariants}
-    className="w-full bg-gradient-to-r from-gray-900 to-gray-800 shadow-lg sticky top-0 z-50 transition-all duration-300"
+    className="w-full bg-white shadow-lg sticky top-0 z-50 transition-all duration-300 perspective-1000"
 >
-    <div className="navbar w-9/12 mx-auto px-4 py-2">
+    <div className="navbar w-9/12 mx-auto px-4 py-2 transform-gpu">
 
         {/* --- Navbar Start (Logo and Mobile Dropdown) --- */}
         <div className="navbar-start">
             <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden transform-gpu hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
                 <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-64 p-4 shadow-xl border border-gray-700 space-y-2 text-white"
+                    className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-64 p-4 shadow-xl border border-gray-100 space-y-2 transform-gpu hover:rotate-y-2 hover:rotate-x-1 transition-transform duration-300"
                 >
                     {Linkss}
                 </ul>
             </div>
 
             <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-                <Link to='/' className="text-2xl font-extrabold text-white flex items-center gap-2">
+                <Link to='/' className="text-2xl font-extrabold text-gray-900 flex items-center gap-2 transform-gpu hover:rotate-y-3 hover:rotate-x-2 hover:scale-105 transition-transform duration-300">
                     <div className='lg:hidden'>
                         <WebSideLogo />
                     </div>
@@ -138,21 +138,14 @@ const Navber = () => {
             </motion.div>
         </div>
 
-        {/* --- Navbar Center (Desktop Links) --- */}
-        <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 space-x-2 text-white">
-                {Linkss}
-            </ul>
-        </div>
-
         {/* --- Navbar End (User & Auth) --- */}
-        <div className="navbar-end flex items-center gap-2">
+        <div className="navbar-end flex items-center gap-2 transform-gpu">
             {user ? (
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end transform-gpu hover:rotate-y-3 hover:rotate-x-2 hover:scale-105 transition-transform duration-300">
                     <div
                         tabIndex={0}
                         role="button"
-                        className="btn btn-ghost btn-circle avatar border-2 border-blue-500 p-0 m-0 hover:shadow-lg hover:shadow-blue-500/50 transition-shadow"
+                        className="btn btn-ghost btn-circle avatar border-2 border-indigo-400 p-0 m-0"
                         data-tooltip-id="infoTip"
                         data-tooltip-content={user?.displayName || "Profile"}
                     >
@@ -166,19 +159,19 @@ const Navber = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-64 p-3 shadow-xl border border-gray-700 space-y-1 text-white"
+                        className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-64 p-3 shadow-xl border border-gray-100 space-y-1 transform-gpu hover:rotate-y-1 hover:rotate-x-1 transition-transform duration-300"
                     >
                         {/* Profile Info */}
-                        <li className='px-3 py-2 font-bold border-b border-gray-700 mb-1 flex flex-col'>
-                            <span className="flex items-center gap-2">
-                                <FaUserCircle className='text-lg text-blue-400' />
+                        <li className='px-3 py-2 text-gray-800 font-bold border-b mb-1 flex flex-col'>
+                            <span className='flex items-center gap-2'>
+                                <FaUserCircle className='inline-block mr-2 text-xl text-indigo-500' />
                                 {user?.displayName || 'User'}
                             </span>
-                            <p className='text-xs font-normal text-gray-400 truncate mt-1'>{user?.email}</p>
+                            <span className='text-xs font-normal text-gray-500 truncate mt-1'>{user?.email}</span>
                         </li>
                         {/* Dashboard Link */}
                         <li>
-                            <Link to="/dashboard/myjoinclub" className='hover:bg-blue-500/20 text-blue-400 font-semibold flex items-center gap-2 rounded-lg px-2 py-1 transition-colors'>
+                            <Link to="/dashboard/myjoinclu" className='hover:bg-indigo-50 text-indigo-600 font-semibold flex items-center gap-2'>
                                 <FaTachometerAlt className='text-lg' /> Dashboard
                             </Link>
                         </li>
@@ -186,7 +179,7 @@ const Navber = () => {
                         <li>
                             <button
                                 onClick={handleLogOut}
-                                className="btn btn-sm btn-block bg-red-600 hover:bg-red-700 text-white border-0 mt-2"
+                                className="btn btn-sm btn-block bg-red-500 hover:bg-red-600 text-white border-0 mt-2"
                             >
                                 <FaSignOutAlt /> Log Out
                             </button>
@@ -198,11 +191,11 @@ const Navber = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    className='md:mr-4 mr-0'
+                    className='md:mr-4 mr-0 transform-gpu hover:rotate-y-2 hover:rotate-x-1 hover:scale-105 transition-transform duration-300'
                 >
                     <Link
                         to="/auth/login"
-                        className="btn bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-indigo-500 hover:to-blue-500 text-white font-bold px-6 py-2 border-0 transition-all duration-300"
+                        className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-2 border-0 transition-colors duration-300 shadow-md"
                     >
                         Login
                     </Link>

@@ -73,7 +73,7 @@ const Contact = () => {
                     <FaMapMarkerAlt className="text-xl mt-1 text-indigo-400 flex-shrink-0" />
                     <div>
                         <h4 className="font-semibold">Visit Us</h4>
-                        <p className="text-gray-400">any where at PH</p>
+                        <p className="text-gray-400">123 Club Street, Suite 456, Rajshahi, Bangladesh</p>
                     </div>
                 </div>
 
@@ -81,8 +81,8 @@ const Contact = () => {
                 <div className="flex items-start space-x-4">
                     <FaPhoneAlt className="text-xl mt-1 text-indigo-400 flex-shrink-0" />
                     <div>
-                        <h4 className="font-semibold">Call </h4>
-                        <p className="text-gray-400">+880 1678978987</p>
+                        <h4 className="font-semibold">Call Us</h4>
+                        <p className="text-gray-400">+880 1</p>
                     </div>
                 </div>
 

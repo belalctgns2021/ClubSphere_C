@@ -73,7 +73,7 @@ const Contact = () => {
                     <FaMapMarkerAlt className="text-xl mt-1 text-indigo-400 flex-shrink-0" />
                     <div>
                         <h4 className="font-semibold">Visit Us</h4>
-                        <p className="text-gray-400">any where at PH</p>
+                        <p className="text-gray-400">any where </p>
                     </div>
                 </div>
 
